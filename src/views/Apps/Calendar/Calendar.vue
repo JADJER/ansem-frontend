@@ -55,7 +55,7 @@
 import 'tui-time-picker/dist/tui-time-picker.css'
 import 'tui-date-picker/dist/tui-date-picker.css'
 import 'tui-calendar/dist/tui-calendar.css'
-import Event from '../../../Model/Event'
+import Event from '../../../models/event'
 import { CalenderList, Events } from '../../../FackApi/api/calendar'
 import { Calendar } from '@toast-ui/vue-calendar'
 import { core } from '../../../config/pluginInit'

@@ -1,5 +1,5 @@
-import User from '../../Model/User'
-import Message from '../../Model/Message'
+import User from '../../models/user'
+import Message from '../../models/message'
 import { APPNAME } from '../../config/pluginInit'
 
 export const Users = [

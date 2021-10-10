@@ -45,21 +45,17 @@
                 Sign in
               </router-link>
           </span>
-          <social-login-form></social-login-form>
       </div>
     </form>
   </ValidationObserver>
 </template>
 
 <script>
-import auth from '../../../../services/auth'
-import firebase from 'firebase'
-import SocialLoginForm from './SocialLoginForm'
+// import AuthService from '../../../../services/auth.servise'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'SignUp1Form',
-  components: { SocialLoginForm },
   props: ['formType'],
   computed: {
     ...mapGetters({
@@ -74,34 +70,21 @@ export default {
   }),
   methods: {
     onSubmit () {
-      if (this.formType === 'passport') {
-        this.passportRegister()
-      } else if (this.formType === 'jwt') {
-        this.jwtRegister()
-      } else if (this.formType === 'firebase') {
-        this.firebaseRegister()
-      }
+      this.jwtRegister()
     },
     jwtRegister () {
       this.$store.dispatch('Setting/addUserAction', this.user)
       this.$router.replace('/auth/sign-in1')
-    },
-    passportRegister () {
-      auth.register(this.user).then(response => {
-        if (response.status) {
-          this.$router.push('/auth/sign-in1')
-        } else if (response.data.errors.length > 0) {
-          this.$refs.form.setErrors(response.data.errors)
-        }
-      }).finally(() => { this.loading = false })
-    },
-    firebaseRegister () {
-      firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password).then((user) => {
-        this.$router.replace('/auth/sign-in1')
-        // eslint-disable-next-line handle-callback-err
-      }).catch((err) => {
-      })
     }
+    // passportRegister () {
+    //   auth.register(this.user).then(response => {
+    //     if (response.status) {
+    //       this.$router.push('/auth/sign-in1')
+    //     } else if (response.data.errors.length > 0) {
+    //       this.$refs.form.setErrors(response.data.errors)
+    //     }
+    //   }).finally(() => { this.loading = false })
+    // }
   }
 }
 </script>

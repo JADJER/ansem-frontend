@@ -184,7 +184,6 @@
 </template>
 <script>
 import { core } from '../../config/pluginInit'
-import { db } from '../../config/firebase'
 
 export default {
   name: 'AddUser',
@@ -235,7 +234,7 @@ export default {
   methods: {
     onSubmit () {
       this.user.name = this.fullName
-      db.collection('users').add(this.user)
+      // db.collection('users').add(this.user)
       core.showSnackbar('success', 'User has been updated successfully.')
       this.$router.replace('/user/user-list')
     },

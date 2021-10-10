@@ -39,7 +39,6 @@ const SignUp1 = () => import('../views/AuthPages/Default/SignUp1')
 const RecoverPassword1 = () => import('../views/AuthPages/Default/RecoverPassword1')
 const LockScreen1 = () => import('../views/AuthPages/Default/LockScreen1')
 const ConfirmMail1 = () => import('../views/AuthPages/Default/ConfirmMail1')
-const Callback = () => import('../views/AuthPages/Default/Callback')
 /* Extra Pages */
 const ErrorPage = () => import('../views/Pages/ErrorPage')
 const ComingSoon = () => import('../views/Pages/ComingSoon')
@@ -54,10 +53,6 @@ const Invoice = () => import('../views/Pages/Invoice')
 const EmailListing = () => import('../views/Apps/Email/EmailListing')
 const EmailCompose = () => import('../views/Apps/Email/EmailCompose')
 const Calendar = () => import('../views/Apps/Calendar/Calendar')
-const ECommerceListing = () => import('../views/Apps/Ecommerce/Listing')
-const Checkout = () => import('../views/Apps/Ecommerce/Checkout')
-const Wishlist = () => import('../views/Apps/Ecommerce/Wishlist')
-const EcommerceDetail = () => import('../views/Apps/Ecommerce/Detail')
 const ChatIndex = () => import('../views/Apps/Chat/Index')
 const ProjectBoard = () => import('../views/Apps/ProjectManagement/ProjectBoard')
 /* Icon Views */
@@ -87,7 +82,6 @@ const ProfileEdit = () => import('../views/User/ProfileEdit')
 const AddUser = () => import('../views/User/AddUser')
 const UserList = () => import('../views/User/UserList')
 /* Apps View */
-const SocialApp = () => import('../views/Apps/Social/SocialApp')
 const TodoListing = () => import('../views/Apps/Todo/TodoListing')
 /* Plugins Views */
 const DatepickerDemo = () => import('../views/Plugins/DatepickerDemo')
@@ -387,30 +381,6 @@ const appChildRoute = (prop) => [
     component: EmailCompose
   },
   {
-    path: 'e-commerce/listing',
-    name: prop + '.e-commerce.index',
-    meta: { auth: true, name: 'Product list' },
-    component: ECommerceListing
-  },
-  {
-    path: 'e-commerce/detail',
-    name: prop + '.e-commerce.detail',
-    meta: { auth: true, name: 'Product Detail' },
-    component: EcommerceDetail
-  },
-  {
-    path: 'e-commerce/checkout',
-    name: prop + '.e-commerce.cart',
-    meta: { auth: true, name: 'Checkout' },
-    component: Checkout
-  },
-  {
-    path: 'e-commerce/wish-list',
-    name: prop + '.e-commerce.wishlist',
-    meta: { auth: true, name: 'Wishlist' },
-    component: Wishlist
-  },
-  {
     path: 'project-management',
     name: prop + '.project.management',
     meta: { auth: true, name: 'Project Management' },
@@ -557,15 +527,6 @@ const userChildRoute = (prop) => [
     component: UserList
   }
 ]
-const socialChildRoute = (prop) => [
-  {
-    path: 'social',
-    name: prop + '.list',
-    meta: { auth: true, name: 'Social App' },
-    component: SocialApp
-  }
-]
-
 const pluginsChildRoute = (prop) => [
   {
     path: 'datepicker',
@@ -665,13 +626,6 @@ const routes = [
     children: userChildRoute('user')
   },
   {
-    path: '/social',
-    name: 'social',
-    component: VerticleLayout,
-    meta: { auth: true },
-    children: socialChildRoute('social')
-  },
-  {
     path: '/map',
     name: 'map',
     component: VerticleLayout,
@@ -691,12 +645,6 @@ const routes = [
     component: VerticleLayout,
     meta: { auth: true },
     children: pluginsChildRoute('plugins')
-  },
-  {
-    path: '/callback',
-    name: 'callback',
-    meta: { auth: false },
-    component: Callback
   }
 ]
 

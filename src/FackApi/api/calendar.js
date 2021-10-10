@@ -1,4 +1,4 @@
-import Event from '../../Model/Event'
+import Event from '../../models/event'
 import moment from 'moment'
 
 export const CalenderList = [
