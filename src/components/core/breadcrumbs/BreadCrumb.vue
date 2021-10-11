@@ -20,13 +20,8 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'BreadCrumb',
-  watch: {
-    $route (to, from) {
-      this.checkRoute()
-    }
-  },
   mounted () {
-    this.currentRoute = this.navList.find(item => item.link.name === this.$route.name)
+    // this.currentRoute = this.navList.find(item => item.link.name === this.$route.name)
     const book = this.bookmark.find(item => item.link.name === this.$route.name)
     if (book !== undefined) {
       this.selectedBookmark = true
@@ -35,7 +30,7 @@ export default {
   computed: {
     ...mapGetters({
       page: 'setting/activePage',
-      navList: 'setting/globalSearchState',
+      // navList: 'setting/globalSearchState',
       bookmark: 'setting/bookmarkState'
     })
   },
@@ -60,13 +55,9 @@ export default {
       this.selectedBookmark = true
     },
     checkRoute () {
-      this.currentRoute = this.navList.find(item => item.link.name === this.$route.name)
+      // this.currentRoute = this.navList.find(item => item.link.name === this.$route.name)
       const book = this.bookmark.find(item => item.link.name === this.$route.name)
-      if (book !== undefined) {
-        this.selectedBookmark = true
-      } else {
-        this.selectedBookmark = false
-      }
+      this.selectedBookmark = book !== undefined
     }
   }
 }
