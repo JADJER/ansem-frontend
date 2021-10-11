@@ -41,7 +41,7 @@
       <div class="sign-info">
           <span class="dark-color d-inline-block line-height-2">
             Already Have Account ?
-            <router-link to="/auth/sign-in1" class="iq-waves-effect pr-4">
+            <router-link to="/auth/login" class="iq-waves-effect pr-4">
                 Sign in
               </router-link>
           </span>
@@ -55,11 +55,11 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'SignUp1Form',
+  name: 'SignUpForm',
   props: ['formType'],
   computed: {
     ...mapGetters({
-      users: 'Setting/usersState'
+      users: 'setting/usersState'
     })
   },
   data: () => ({
@@ -70,21 +70,9 @@ export default {
   }),
   methods: {
     onSubmit () {
-      this.jwtRegister()
-    },
-    jwtRegister () {
-      this.$store.dispatch('Setting/addUserAction', this.user)
-      this.$router.replace('/auth/sign-in1')
+      this.$store.dispatch('auth/register', this.user)
+      this.$router.replace({ name: 'auth.login' })
     }
-    // passportRegister () {
-    //   auth.register(this.user).then(response => {
-    //     if (response.status) {
-    //       this.$router.push('/auth/sign-in1')
-    //     } else if (response.data.errors.length > 0) {
-    //       this.$refs.form.setErrors(response.data.errors)
-    //     }
-    //   }).finally(() => { this.loading = false })
-    // }
   }
 }
 </script>

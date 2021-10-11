@@ -15,7 +15,7 @@
       <ValidationProvider vid="password" name="Password" rules="required" v-slot="{ errors }">
         <div class="form-group">
           <label for="passwordInput">Password</label>
-          <router-link to="/auth/password-reset1" class="float-right">
+          <router-link to="/auth/password-reset" class="float-right">
             Forgot password?
           </router-link>
           <input type="password"  :class="'form-control mb-0' +(errors.length > 0 ? ' is-invalid' : '')"
@@ -36,7 +36,7 @@
       <div class="sign-info">
           <span class="dark-color d-inline-block line-height-2">
             Don't have an account?
-            <router-link to="/auth/sign-up1" class="iq-waves-effect pr-4">
+            <router-link to="/auth/register" class="iq-waves-effect pr-4">
               Sign up
             </router-link>
           </span>
@@ -46,12 +46,11 @@
 </template>
 
 <script>
-// import AuthService from '../../../../services/auth.servise'
 // import { core } from '@/config/pluginInit'
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'SignIn1Form',
+  name: 'SignInForm',
   props: ['formType', 'email', 'password'],
   data: () => ({
     user: {
@@ -65,20 +64,17 @@ export default {
   },
   computed: {
     ...mapGetters({
-      stateUsers: 'Setting/usersState'
+      stateUsers: 'setting/usersState'
     })
   },
   methods: {
     onSubmit () {
       this.message = ''
-      this.submitted = true
       this.$store.dispatch('auth/login', this.user).then(
         data => {
           this.message = data.message
           this.successful = true
-          // localStorage.setItem('user', JSON.stringify(selectedUser))
-          // localStorage.setItem('access_token', selectedUser.token)
-          this.$router.push({ name: 'dashboard.home-1' })
+          this.$router.push({ name: 'dashboard' })
         },
         error => {
           this.message =

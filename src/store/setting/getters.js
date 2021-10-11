@@ -5,7 +5,7 @@ export default {
   usersState: state => state.users,
   activePage: state => state.activePage,
   langState: state => state.lang,
-  globalSearchState: state => state.globalSearch,
+  // globalSearchState: state => state.globalSearch,
   bookmarkState: state => state.bookmark,
   langOptionState: state => state.langOption,
   colorState: state => state.colors,

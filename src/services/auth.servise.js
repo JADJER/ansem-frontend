@@ -1,6 +1,4 @@
-import axios from './index'
-
-const API_URL = 'http://jadjer.pythonanywhere.com'
+import axios, { API_URL } from './index'
 
 export default {
   login (user) {
@@ -10,18 +8,17 @@ export default {
         password: user.password
       })
       .then(response => {
-        if (response.data.accessToken) {
-          localStorage.setItem('user', JSON.stringify(response.data))
+        if (response.data.access_token) {
+          localStorage.setItem('access_token', response.data.access_token)
         }
-
-        return response.data
+        return response.data.access_token
       })
   },
   logout () {
     localStorage.removeItem('user')
   },
   register (user) {
-    return axios.post(API_URL + '/api/v1/profile', {
+    return axios.post(API_URL + '/profile', {
       email: user.email,
       password: user.password,
       first_name: user.first_name,

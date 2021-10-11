@@ -1,16 +1,14 @@
-import axios from './index'
-
-const API_URL = 'http://jadjer.pythonanywhere.com/api/v1/requests'
+import axios, { API_URL } from './index'
 
 export default {
   getAllRequests () {
-    return axios.get(API_URL)
+    return axios.get(API_URL + '/requests')
   },
   getRequest (requestId) {
-    return axios.get(API_URL + '/' + requestId)
+    return axios.get(axios + '/requests/' + requestId)
   },
   updateRequest (requestId, requestData) {
-    return axios.put(API_URL + '/' + requestId, {
+    return axios.put(API_URL + '/requests/' + requestId, {
       country: requestData.country,
       city: requestData.city,
       address: requestData.address,
@@ -20,6 +18,6 @@ export default {
     })
   },
   deleteRequest (requestId) {
-    return axios.delete(API_URL + '/' + requestId)
+    return axios.delete(API_URL + '/requests/' + requestId)
   }
 }

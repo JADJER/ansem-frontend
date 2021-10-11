@@ -4,6 +4,10 @@ module.exports = {
     ? process.env.VUE_APP_BASE_URL
     : '/',
 
+  // devServer: {
+  //   proxy: 'http://jadjer.pythonanywhere.com'
+  // },
+
   configureWebpack: {
     plugins: [
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)

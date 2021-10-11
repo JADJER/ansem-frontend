@@ -1,8 +1,8 @@
 export default function authToken () {
-  const user = JSON.parse(localStorage.getItem('user'))
+  const accessToken = localStorage.getItem('access_token')
 
-  if (user && user.accessToken) {
-    return 'Bearer ' + user.accessToken
+  if (accessToken) {
+    return 'Bearer ' + accessToken
   } else {
     return ''
   }

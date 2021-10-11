@@ -1,7 +1,7 @@
 import getters from './getters'
 import actions from './actions'
 import mutations from './mutations'
-import SideBarItems from '../../FackApi/json/GlobalSearch'
+// import SideBarItems from '../../FackApi/json/GlobalSearch'
 
 const state = {
   horizontalMenu: false,
@@ -39,7 +39,7 @@ const state = {
       password: 'admin123'
     }
   ],
-  globalSearch: SideBarItems,
+  // globalSearch: SideBarItems,
   bookmark: [
     {
       title: 'Video Chat',

@@ -1,13 +1,11 @@
-import axios from './index'
-
-const API_URL = 'http://jadjer.pythonanywhere.com/api/v1/profile'
+import axios, { API_URL } from './index'
 
 export default {
   getProfile () {
-    return axios.get(API_URL)
+    return axios.get(API_URL + '/profile')
   },
   updateProfile (user) {
-    return axios.put(API_URL, {
+    return axios.put(API_URL + '/profile', {
       email: user.email,
       password: user.password,
       first_name: user.first_name,
@@ -15,6 +13,6 @@ export default {
     })
   },
   deleteProfile () {
-    return axios.delete(API_URL)
+    return axios.delete(API_URL + '/profile')
   }
 }

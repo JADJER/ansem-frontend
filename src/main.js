@@ -1,7 +1,7 @@
 import '@babel/polyfill'
 import Vue from 'vue'
 import 'mutationobserver-shim'
-import './Utils/fliter'
+import './utils/fliter'
 import App from './App.vue'
 import router from './router'
 import store from './store'

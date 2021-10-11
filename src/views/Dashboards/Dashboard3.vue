@@ -326,7 +326,7 @@ export default {
   name: 'Dashboard3',
   mounted () {
     core.index()
-    // core.bodyClassCheck('iq-page-menu-horizontal')
+    core.bodyClassCheck('iq-page-menu-horizontal')
   },
   components: { ApexChart, Counter },
   data () {

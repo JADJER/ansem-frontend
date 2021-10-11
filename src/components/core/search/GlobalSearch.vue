@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      sidebar: 'Setting/globalSearchState'
+      sidebar: 'setting/globalSearchState'
     }),
     filteredList () {
       return this.sidebar.filter(item => {

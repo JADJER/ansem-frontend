@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      bookmark: 'Setting/bookmarkState'
+      bookmark: 'setting/bookmarkState'
     })
   },
   methods: {
