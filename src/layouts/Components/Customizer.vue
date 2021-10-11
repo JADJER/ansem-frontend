@@ -107,8 +107,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      darkMode: 'Setting/darkModeState',
-      colors: 'Setting/colorState'
+      darkMode: 'setting/darkModeState',
+      colors: 'setting/colorState'
     })
   },
   mounted () {
@@ -127,12 +127,8 @@ export default {
       rtl: false,
       dark: false,
       mini: false,
-      notShowMiniSidebar: ['dashboard.home-1'],
-      notShowSidebarSetting: [
-        'dashboard.home-1',
-        'dashboard.home-3',
-        'dashboard.home-4'
-      ]
+      notShowMiniSidebar: [],
+      notShowSidebarSetting: ['dashboard.home']
     }
   },
   methods: {
@@ -185,7 +181,7 @@ export default {
       }
     },
     updateRadio () {
-      this.mini = this.$store.getters['Setting/miniSidebarState']
+      this.mini = this.$store.getters['setting/miniSidebarState']
     },
     async miniSidebar () {
       this.$emit('toggle')
@@ -197,7 +193,7 @@ export default {
       this.$emit('animationChange', this.animated)
     },
     ...mapActions({
-      modeChange: 'Setting/layoutModeAction'
+      modeChange: 'setting/layoutModeAction'
     })
   }
 }

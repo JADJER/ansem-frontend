@@ -34,9 +34,9 @@ export default {
   },
   computed: {
     ...mapGetters({
-      page: 'Setting/activePage',
-      navList: 'Setting/globalSearchState',
-      bookmark: 'Setting/bookmarkState'
+      page: 'setting/activePage',
+      navList: 'setting/globalSearchState',
+      bookmark: 'setting/bookmarkState'
     })
   },
   data () {
@@ -48,8 +48,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      addToBookmarkState: 'Setting/addBookmarkAction',
-      removeToBookmarkState: 'Setting/removeBookmarkAction'
+      addToBookmarkState: 'setting/addBookmarkAction',
+      removeToBookmarkState: 'setting/removeBookmarkAction'
     }),
     removeToBookmark (item) {
       this.removeToBookmarkState(item)

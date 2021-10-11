@@ -220,17 +220,11 @@
 </template>
 <script>
 import { core } from '../../config/pluginInit'
-import { db } from '../../config/firebase'
 
 export default {
   name: 'ProfileEdit',
   mounted () {
     core.index()
-  },
-  firestore () {
-    return {
-      user: db.collection('users').doc(this.$route.params.id)
-    }
   },
   data () {
     return {

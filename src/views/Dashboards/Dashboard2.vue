@@ -328,8 +328,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      rtl: 'Setting/rtlModeState',
-      lang: 'Setting/langState'
+      rtl: 'setting/rtlModeState',
+      lang: 'setting/langState'
     })
   },
   methods: {

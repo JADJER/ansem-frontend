@@ -35,7 +35,7 @@ export default {
       }
     },
     ...mapGetters({
-      darkMode: 'Setting/darkModeState'
+      darkMode: 'setting/darkModeState'
     })
   },
   mounted () {

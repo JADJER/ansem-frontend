@@ -31,7 +31,6 @@ import 'ag-grid-community/dist/styles/ag-theme-material.css'
 import { AllCommunityModules } from '@ag-grid-enterprise/all-modules'
 import { core } from '../../config/pluginInit'
 import { AgGridVue } from 'ag-grid-vue'
-import { db } from '../../config/firebase'
 import ActionUser from './Components/ActionUser'
 
 export default {
@@ -44,11 +43,6 @@ export default {
       columnDefs: null,
       rowData: [],
       modules: AllCommunityModules
-    }
-  },
-  firestore () {
-    return {
-      rowData: db.collection('users')
     }
   },
   components: {

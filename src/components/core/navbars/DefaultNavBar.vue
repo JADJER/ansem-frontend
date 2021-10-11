@@ -61,7 +61,7 @@ import CollapseMenu from '../menus/CollapseMenu'
 export default {
   name: 'DefaultNavBar',
   props: {
-    homeURL: { type: Object, default: () => ({ name: 'dashboard.home-1' }) },
+    homeURL: { type: Object, default: () => ({ name: 'dashboard.home' }) },
     logo: { type: String, default: require('../../../assets/images/logo.png') },
     horizontal: { type: Boolean, default: false },
     items: { type: Array },
@@ -79,7 +79,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      bookmark: 'Setting/bookmarkState'
+      bookmark: 'setting/bookmarkState'
     })
   },
   data () {

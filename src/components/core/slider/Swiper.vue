@@ -96,7 +96,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      rtl: 'Setting/rtlModeState'
+      rtl: 'setting/rtlModeState'
     })
   },
   watch: {

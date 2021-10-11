@@ -4,7 +4,7 @@ import Store from '../store/index'
 import Route from '../router/index'
 import counterUp from 'counterup2'
 require('waypoints/lib/noframework.waypoints.min')
-export const APPNAME = 'Vito'
+export const APPNAME = 'Ansem'
 
 export const core = {
   index () {
@@ -69,7 +69,7 @@ export const core = {
       breadCrumb: [
         {
           html: '<i class="ri-home-4-line mr-1 float-left"></i>Home',
-          to: { name: 'dashboard.home-1' }
+          to: { name: 'dashboard.home' }
         },
         {
           text: Route.currentRoute.meta.name,
@@ -78,7 +78,7 @@ export const core = {
       ],
       bookmark: true
     }
-    Store.dispatch('Setting/activePageAction', obj)
+    Store.dispatch('setting/activePageAction', obj)
   },
   fixedHeader () {
     let position = 0
