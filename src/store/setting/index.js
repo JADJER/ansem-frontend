@@ -1,7 +1,6 @@
 import getters from './getters'
 import actions from './actions'
 import mutations from './mutations'
-// import SideBarItems from '../../FackApi/json/GlobalSearch'
 
 const state = {
   horizontalMenu: false,
@@ -78,7 +77,7 @@ const state = {
     breadCrumb: [
       {
         html: '<i class="ri-home-4-line mr-1 float-left"></i>Home',
-        to: { name: 'dashboard.home-1' }
+        to: { name: 'dashboard.home' }
       },
       {
         text: '',

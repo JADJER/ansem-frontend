@@ -156,13 +156,11 @@
 <script>
 import Loader from '../components/core/loader/Loader'
 import DefaultNavBar from '../components/core/navbars/DefaultNavBar'
-import HorizontalItems from '../FackApi/json/HorizontalMenu'
 import profile from '../assets/images/user/user-1.jpeg'
 import loader from '../assets/images/loader.gif'
 import { core } from '@/config/pluginInit'
 import { mapActions, mapGetters } from 'vuex'
 import Lottie from '../components/core/lottie/Lottie'
-// import Customizer from './Components/Customizer'
 import WhiteLogo from '../assets/images/logo-2.png'
 import BreadCrumb from '../components/core/breadcrumbs/BreadCrumb'
 import LayoutFooter from './Components/LayoutFooter'
@@ -171,7 +169,6 @@ export default {
   name: 'HorizantalLayout',
   components: {
     LayoutFooter,
-    // Customizer,
     Lottie,
     Loader,
     DefaultNavBar,
@@ -183,8 +180,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      cartCount: 'Ecommerce/cartCountState',
-      cartItems: 'Ecommerce/cartState',
       selectedLang: 'setting/langState',
       langsOptions: 'setting/langOptionState',
       darkMode: 'setting/darkModeState',
@@ -211,7 +206,8 @@ export default {
       horizontal: true,
       mini: false,
       animated: { enter: 'fadeInUp', exit: 'fadeOut' },
-      items: HorizontalItems,
+      // items: HorizontalItems,
+      items: [],
       userProfile: profile,
       onlyLogo: true,
       onlyLogoText: true,
@@ -273,11 +269,6 @@ export default {
       this.langChangeState(lang)
       this.$i18n.locale = lang.value
       document.getElementsByClassName('iq-show')[0].classList.remove('iq-show')
-      if (lang.value === 'ar') {
-        this.rtlAdd(lang)
-      } else {
-        this.rtlRemove(lang)
-      }
     },
     routerAnimationChange (e) {
       this.animated = e

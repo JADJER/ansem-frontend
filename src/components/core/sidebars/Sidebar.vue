@@ -30,7 +30,7 @@ import { APPNAME } from '../../../config/pluginInit'
 export default {
   name: 'Sidebar',
   props: {
-    homeURL: { type: Object, default: () => ({ name: 'dashboard.home-1' }) },
+    homeURL: { type: Object, default: () => ({ name: 'dashboard.home' }) },
     items: { type: Array },
     logo: { type: String, default: require('../../../assets/images/logo.png') },
     horizontal: { type: Boolean },
