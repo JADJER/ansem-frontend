@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
 import SignInForm from './Forms/SignInForm'
 
 export default {

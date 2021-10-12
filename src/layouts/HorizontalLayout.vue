@@ -1,10 +1,9 @@
 <template>
   <div>
     <Loader />
-<!--    <Customizer @onLogo="changeLogo" />-->
     <div class="wrapper">
       <!-- TOP Nav Bar -->
-      <DefaultNavBar title="Dashboard" :homeURL="{ name: 'dashboard.home' }" :sidebarGroupTitle="sidebarGroupTitle" @toggle="sidebarMini" :logo="logo" :horizontal="horizontal" :items="items">
+      <DefaultNavBar title="Dashboard" :homeURL="{ name: 'dashboard.home' }" :sidebarGroupTitle="sidebarGroupTitle" :logo="logo" :horizontal="horizontal" :items="items">
         <template slot="responsiveRight">
           <ul class="navbar-nav ml-auto navbar-list">
             <li class="nav-item" v-nav-toggle>
@@ -138,12 +137,7 @@
         </template>
       </DefaultNavBar>
       <!-- TOP Nav Bar END -->
-      <div id="content-page" class="content-page" :class="horizontal ? 'ml-0' : ''">
-        <b-container fluid="" v-if="!notBookmarkRouts.includes($route.name)">
-          <b-row>
-            <BreadCrumb />
-          </b-row>
-        </b-container>
+      <div id="content-page" class="content-page ml-0">
         <transition name="router-anim" :enter-active-class="`animated ${animated.enter}`" mode="out-in"
                     :leave-active-class="`animated ${animated.exit}`">
           <router-view/>
@@ -158,21 +152,19 @@ import Loader from '../components/core/loader/Loader'
 import DefaultNavBar from '../components/core/navbars/DefaultNavBar'
 import profile from '../assets/images/user/user-1.jpeg'
 import loader from '../assets/images/loader.gif'
-import { core } from '@/config/pluginInit'
+import HorizontalItems from '../data/menu.json'
 import { mapActions, mapGetters } from 'vuex'
 import Lottie from '../components/core/lottie/Lottie'
 import WhiteLogo from '../assets/images/logo-2.png'
-import BreadCrumb from '../components/core/breadcrumbs/BreadCrumb'
 import LayoutFooter from './Components/LayoutFooter'
 import darkLoader from '../assets/images/darkMode/dark-logo.gif'
 export default {
-  name: 'HorizantalLayout',
+  name: 'HorizontalLayout',
   components: {
     LayoutFooter,
     Lottie,
     Loader,
-    DefaultNavBar,
-    BreadCrumb
+    DefaultNavBar
   },
   mounted () {
     this.updateRadio()
@@ -206,8 +198,7 @@ export default {
       horizontal: true,
       mini: false,
       animated: { enter: 'fadeInUp', exit: 'fadeOut' },
-      // items: HorizontalItems,
-      items: [],
+      items: HorizontalItems,
       userProfile: profile,
       onlyLogo: true,
       onlyLogoText: true,
@@ -229,9 +220,6 @@ export default {
         { image: require('../assets/images/user/user-03.jpg'), name: 'Barb Ackue', date: '16 hour ago', description: 'Dell Inspiron Laptop: Get speed and performance from' },
         { image: require('../assets/images/user/user-04.jpg'), name: 'Anna Sthesia', date: '21 hour ago', description: 'Deliver your favorite playlist anywhere in your home ' },
         { image: require('../assets/images/user/user-05.jpg'), name: 'Bob Frapples', date: '11 hour ago', description: 'MacBook Air features up to 8GB of memory, a fifth-generation' }
-      ],
-      notBookmarkRouts: [
-        'dashboard.home'
       ]
     }
   },
@@ -254,11 +242,6 @@ export default {
     },
     updateRadio () {
       this.mini = this.$store.getters['setting/miniSidebarState']
-    },
-    sidebarMini () {
-      core.triggerSet()
-      this.$store.dispatch('setting/miniSidebarAction')
-      this.updateRadio()
     },
     logout () {
       localStorage.removeItem('user')

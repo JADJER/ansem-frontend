@@ -122,13 +122,13 @@ export const core = {
         })
 
         // get height width without padding
-        var cs = getComputedStyle(e.target)
+        const cs = getComputedStyle(e.target)
 
-        var paddingX = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight)
-        var paddingY = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom)
+        const paddingX = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight)
+        const paddingY = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom)
 
-        var borderX = parseFloat(cs.borderLeftWidth) + parseFloat(cs.borderRightWidth)
-        var borderY = parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth)
+        const borderX = parseFloat(cs.borderLeftWidth) + parseFloat(cs.borderRightWidth)
+        const borderY = parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth)
 
         // Element width and height minus padding and border
         const elementWidth = e.target.offsetWidth - paddingX - borderX
@@ -363,7 +363,7 @@ export const core = {
   },
   progressInit (e) {
     const iqProgress = e
-    if (iqProgress !== undefined && iqProgress !== null && iqProgress !== undefined) {
+    if (iqProgress !== undefined && iqProgress !== null) {
       iqProgress.style.transition = 'width 2s ease 0s'
       iqProgress.style.width = iqProgress.getAttribute('data-value') + '%'
     }

@@ -5,18 +5,18 @@
     <sign-up-form></sign-up-form>
   </div>
 </template>
-<script>
 
+<script>
 import SignUpForm from './Forms/SignUpForm'
-// import constant from '../../../config/constant'
 
 export default {
   name: 'SignUp',
   components: { SignUpForm },
   data: () => ({}),
-  methods: {
-    loginOAuth0 () {
-      // new auth0.WebAuth(constant.auth0Config).authorize()
+  mounted () {
+    const accessToken = localStorage.getItem('access_token')
+    if (accessToken !== undefined && accessToken !== null) {
+      this.$router.push({ name: 'dashboard' })
     }
   }
 }

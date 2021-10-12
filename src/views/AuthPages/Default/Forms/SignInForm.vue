@@ -36,7 +36,7 @@
       <div class="sign-info">
           <span class="dark-color d-inline-block line-height-2">
             Don't have an account?
-            <router-link to="/auth/register" class="iq-waves-effect pr-4">
+            <router-link :to="{ name: 'auth.register' }" class="iq-waves-effect pr-4">
               Sign up
             </router-link>
           </span>

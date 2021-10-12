@@ -41,7 +41,7 @@
       <div class="sign-info">
           <span class="dark-color d-inline-block line-height-2">
             Already Have Account ?
-            <router-link to="/auth/login" class="iq-waves-effect pr-4">
+            <router-link :to="{ name: 'auth.login' }" class="iq-waves-effect pr-4">
                 Sign in
               </router-link>
           </span>
@@ -51,7 +51,6 @@
 </template>
 
 <script>
-// import AuthService from '../../../../services/auth.servise'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -64,14 +63,33 @@ export default {
   },
   data: () => ({
     user: {
+      first_name: '',
+      last_name: '',
       email: '',
-      password: ''
+      password: '',
+      address: '',
+      mobile_no: '',
+      country: '',
+      city: ''
     }
   }),
   methods: {
     onSubmit () {
-      this.$store.dispatch('auth/register', this.user)
-      this.$router.replace({ name: 'auth.login' })
+      this.message = ''
+      this.$store.dispatch('auth/register', this.user).then(
+        data => {
+          this.message = data.message
+          this.successful = true
+          this.$router.push({ name: 'auth.login' })
+        },
+        error => {
+          this.message =
+            (error.response && error.response.data) ||
+            error.message ||
+            error.toString()
+          this.successful = false
+        }
+      )
     }
   }
 }

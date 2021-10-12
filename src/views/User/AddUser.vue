@@ -235,8 +235,13 @@ export default {
     onSubmit () {
       this.user.name = this.fullName
       // db.collection('users').add(this.user)
+
       core.showSnackbar('success', 'User has been updated successfully.')
       this.$router.replace('/user/user-list')
+    },
+    passwordGenerate (password) {
+      const encodedPassword = new TextEncoder('UTF-8').encode(password)
+      return crypto.createHash('sha512').update(encodedPassword).digest()
     },
     previewImage: function (event) {
       const input = event.target
